@@ -16,56 +16,123 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>de.lightful.poms</groupId>
-    <artifactId>standard-plugins</artifactId>
-    <version>29</version>
+    <groupId>de.lightful.maven.drools.poms</groupId>
+    <artifactId>knowledge-module</artifactId>
+    <version>4</version>
   </parent>
 
   <groupId>de.lightful.maven.drools.poms</groupId>
-  <artifactId>knowledge-module</artifactId>
-  <version>5-SNAPSHOT</version>
+  <artifactId>multi-target-knowledge-module</artifactId>
+  <version>1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>Maven Drools Support :: Parent POMs :: Knowledge Module</name>
-  <description>Parent POM for Maven modules of type 'Drools Knowledge Module'.</description>
-
-  <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>de.lightful.maven.plugins</groupId>
-          <artifactId>maven-drools-plugin</artifactId>
-          <version>0.2.3</version>
-          <extensions>true</extensions>
-          <dependencies>
-            <dependency>
-              <groupId>org.drools</groupId>
-              <artifactId>knowledge-api</artifactId>
-              <version>[5.3.0.Final]</version>
-            </dependency>
-            <dependency>
-              <groupId>org.drools</groupId>
-              <artifactId>drools-compiler</artifactId>
-              <version>[5.3.0.Final]</version>
-            </dependency>
-            <dependency>
-              <groupId>org.drools</groupId>
-              <artifactId>drools-compiler</artifactId>
-              <version>[5.3.0.Final]</version>
-            </dependency>
-          </dependencies>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
+  <name>Maven Drools Support :: Parent POMs :: Multi-Target Knowledge Module</name>
+  <description>Parent POM for Maven modules of type 'Drools Knowledge Module', capable of targetting multiple Drools runtime versions.</description>
 
   <scm>
-    <connection>scm:git:git@github.com:maven-drools/poms.knowledge-module.git</connection>
-    <developerConnection>scm:git:git@github.com:maven-drools/poms.knowledge-module.git</developerConnection>
+    <connection>scm:git:git@github.com:maven-drools/poms.multi-target-knowledge-module.git</connection>
+    <developerConnection>scm:git:git@github.com:maven-drools/poms.multi-target-knowledge-module.git</developerConnection>
   </scm>
+
+  <profiles>
+    <profile>
+      <id>drools.runtime.version=5.1.1</id>
+      <properties>
+        <drools.runtime.version>5.1.1</drools.runtime.version>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>de.lightful.maven.plugins</groupId>
+            <artifactId>maven-drools-plugin</artifactId>
+            <dependencies>
+              <dependency>
+                <groupId>org.drools</groupId>
+                <artifactId>drools-api</artifactId>
+                <version>[${drools.runtime.version}]</version>
+              </dependency>
+              <dependency>
+                <groupId>org.drools</groupId>
+                <artifactId>drools-core</artifactId>
+                <version>[${drools.runtime.version}]</version>
+              </dependency>
+              <dependency>
+                <groupId>org.drools</groupId>
+                <artifactId>drools-compiler</artifactId>
+                <version>[${drools.runtime.version}]</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>drools.runtime.version=5.2.0.Final</id>
+      <properties>
+        <drools.runtime.version>5.2.0.Final</drools.runtime.version>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>de.lightful.maven.plugins</groupId>
+            <artifactId>maven-drools-plugin</artifactId>
+            <dependencies>
+              <dependency>
+                <groupId>org.drools</groupId>
+                <artifactId>knowledge-api</artifactId>
+                <version>[${drools.runtime.version}]</version>
+              </dependency>
+              <dependency>
+                <groupId>org.drools</groupId>
+                <artifactId>drools-core</artifactId>
+                <version>[${drools.runtime.version}]</version>
+              </dependency>
+              <dependency>
+                <groupId>org.drools</groupId>
+                <artifactId>drools-compiler</artifactId>
+                <version>[${drools.runtime.version}]</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>drools.runtime.version=5.3.0.Final</id>
+      <properties>
+        <drools.runtime.version>5.3.0.Final</drools.runtime.version>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>de.lightful.maven.plugins</groupId>
+            <artifactId>maven-drools-plugin</artifactId>
+            <dependencies>
+              <dependency>
+                <groupId>org.drools</groupId>
+                <artifactId>knowledge-api</artifactId>
+                <version>[${drools.runtime.version}]</version>
+              </dependency>
+              <dependency>
+                <groupId>org.drools</groupId>
+                <artifactId>drools-core</artifactId>
+                <version>[${drools.runtime.version}]</version>
+              </dependency>
+              <dependency>
+                <groupId>org.drools</groupId>
+                <artifactId>drools-compiler</artifactId>
+                <version>[${drools.runtime.version}]</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 </project>
