@@ -27,7 +27,7 @@
 
   <groupId>de.lightful.maven.drools.poms</groupId>
   <artifactId>multi-target-knowledge-module</artifactId>
-  <version>3</version>
+  <version>4-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Maven Drools Support :: Parent POMs :: Multi-Target Knowledge Module</name>
