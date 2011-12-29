@@ -16,13 +16,14 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>de.lightful.maven.drools.poms</groupId>
     <artifactId>knowledge-module</artifactId>
-    <version>4</version>
+    <version>8</version>
   </parent>
 
   <groupId>de.lightful.maven.drools.poms</groupId>
@@ -32,6 +33,14 @@
 
   <name>Maven Drools Support :: Parent POMs :: Multi-Target Knowledge Module</name>
   <description>Parent POM for Maven modules of type 'Drools Knowledge Module', capable of targetting multiple Drools runtime versions.</description>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
 
   <scm>
     <connection>scm:git:git@github.com:maven-drools/poms.multi-target-knowledge-module.git</connection>
